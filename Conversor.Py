@@ -1,4 +1,6 @@
-from Funciones import * 
+from Funciones import trm
+from Funciones import Conversor_moneda
+import time 
 
 dolar_colombia= trm(date)[4]           
 dolar_argentina=65
