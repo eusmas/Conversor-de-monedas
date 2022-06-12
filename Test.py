@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from multiprocessing.sharedctypes import Value
 from suds.client import Client
 import time
 
@@ -14,4 +15,8 @@ def trm(date):
 
     return trm
 
-print trm(date)
+valor_dolar= trm(date)
+print(type(valor_dolar))
+
+#print (trm(date))
+#print (valor_dolar)
