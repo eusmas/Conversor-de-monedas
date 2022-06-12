@@ -1,6 +1,5 @@
 from Funciones import * 
 
-
 dolar_colombia= trm(date)[4]           
 dolar_argentina=65
 dolar_mexico=24
@@ -13,30 +12,22 @@ menu= """Bienvenido al conversor de monedas
 
 Elige una opcion:   """
 
-opcion=int(input (menu))
+opcion=int(input(menu))
+
+#print("Tienes " + dolares + " USD")
+
 
 if opcion==1:
-
-    pesos=float (input ("Cuantos pesos colombiansos tienes: "))
-    dolares=round(pesos/dolar_colombia,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
-    dolares=str(dolares)
-    print("Tienes " + dolares + " USD")
+    dolares=Conversor_moneda("Colombianos", dolar_colombia)
 
 elif opcion==2:
-
-    pesos=float (input ("Cuantos pesos argentinos tienes: "))
-    dolares=round(pesos/dolar_argentina,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
-    dolares=str(dolares)
-    print("Tienes $" + dolares + " USD")
+    dolares=Conversor_moneda("Argentinos", dolar_argentina)
     
 elif opcion==3:
-    
-    pesos=float (input ("Cuantos pesos mexicanos tienes: "))
-    dolares=round(pesos/dolar_mexico,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
-    dolares=str(dolares)
-    print("Tienes $" + dolares + " USD")
-
+    dolares=Conversor_moneda("Mexicanos", dolar_mexico)
 else:
     print("Ingregsa una opion correcta por favor")
 
+
+print("Tienes $" + dolares + " USD")
 

@@ -16,9 +16,17 @@ def trm(date):
 
     return trm
 
-dolar_colombia= trm(date)[4] #trm(date) entrega una especie de vector con mucha info de la trm del dia (date), en la posicion 4 esta el valor en $pesos tipo float
+#dolar_colombia= trm(date)[4] #trm(date) entrega una especie de vector con mucha info de la trm del dia (date), en la posicion 4 esta el valor en $pesos tipo float
+#print(trm(date))
+#print(dolar_colombia)
+
+#___________________________________________________________
 
 
+def Conversor_moneda(tipo_pesos, valor_dolar):
+    pesos=float (input ("Cuantos pesos " + tipo_pesos + " tienes: "))
+    dolares=round(pesos/valor_dolar,2)
+    dolares=str(dolares)
+    return(dolares)
 
-print(trm(date))
-print(dolar_colombia)
+
