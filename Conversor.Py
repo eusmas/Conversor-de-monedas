@@ -1,29 +1,42 @@
-#!/usr/bin/env python
+from Funciones import * 
 
-from multiprocessing.sharedctypes import Value
-from suds.client import Client
-import time
 
-WSDL_URL = 'https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService?WSDL'
-date = time.strftime('%Y-%m-%d')
+dolar_colombia= trm(date)[4]           
+dolar_argentina=65
+dolar_mexico=24
 
-def trm(date):
-    try:
-        client = Client(WSDL_URL, location=WSDL_URL, faults=True)
-        trm =  client.service.queryTCRM(date)
-    except Exception as e:
-        return str(e)
+menu= """Bienvenido al conversor de monedas 
 
-    return trm
+1- Peso Colombiano
+2- Peso Argentino
+3- Pesos Mexicanos
 
-valor_dolar= trm(date)[4]           #trm(date) entrega una especie de vector con mucha info de la trm del dia (date), en la posicion 4 esta el valor en $pesos tipo float
+Elige una opcion:   """
 
-#print (trm(date))
-#print (valor_dolar[4])
+opcion=int(input (menu))
 
-pesos=float (input ("Cuantos pesos colombiansos tienes: "))
+if opcion==1:
 
-dolares=round(pesos/valor_dolar,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
-dolares=str(dolares)
+    pesos=float (input ("Cuantos pesos colombiansos tienes: "))
+    dolares=round(pesos/dolar_colombia,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
+    dolares=str(dolares)
+    print("Tienes " + dolares + " USD")
 
-print("Tienes $" + dolares)
+elif opcion==2:
+
+    pesos=float (input ("Cuantos pesos argentinos tienes: "))
+    dolares=round(pesos/dolar_argentina,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
+    dolares=str(dolares)
+    print("Tienes $" + dolares + " USD")
+    
+elif opcion==3:
+    
+    pesos=float (input ("Cuantos pesos mexicanos tienes: "))
+    dolares=round(pesos/dolar_mexico,2)          #round redondea un numero al numro de decimales que le pongas, en este caso=2
+    dolares=str(dolares)
+    print("Tienes $" + dolares + " USD")
+
+else:
+    print("Ingregsa una opion correcta por favor")
+
+
